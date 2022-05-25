@@ -15,19 +15,19 @@ import { FaPencilAlt, FaPlus, FaTrashAlt } from "react-icons/fa";
 import { BaseUser, User } from "./Interface";
 
 export const Menu = () => {
-  const defaultUsers   = [
+  const defaultUsers = [
     {
       id: 1,
-      name: "Bob",
-      address: "Dublin",
+      name: "Leo",
+      address: "Krakow",
       age: "26",
       profession: "Software Engineer",
       interestRate: "4",
     },
     {
       id: 2,
-      name: "John",
-      address: "Galaway",
+      name: "Kamil",
+      address: "Warsaw",
       age: "24",
       profession: "Software Engineer",
       interestRate: "5",
@@ -51,11 +51,11 @@ export const Menu = () => {
   const [rates, setRates] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
   const handleClose = () => {
-    setShow(false);   
+    setShow(false);
   };
   const handleShow = () => {
     setShow(true);
-    if(editing == false) {
+    if (editing == false) {
       setNewUser(initCurrentUser);
     }
   };
@@ -67,11 +67,11 @@ export const Menu = () => {
 
   const onEdit = (newUser: any) => {
     setEdit(true);
-    if(editing == true) {
+    if (editing == true) {
       setNewUser({ ...newUser, newUser });
       handleShow();
     }
-    
+
   };
 
   const onSubmit = (newUser: any) => {
@@ -185,9 +185,9 @@ export const Menu = () => {
             >
               <Modal.Header closeButton>
                 {
-                  editing == true 
-                  ? <Modal.Title>Edit User</Modal.Title>
-                  : <Modal.Title>Add User</Modal.Title>
+                  editing == true
+                    ? <Modal.Title>Edit User</Modal.Title>
+                    : <Modal.Title>Add User</Modal.Title>
                 }
               </Modal.Header>
               <Modal.Body>
@@ -247,10 +247,10 @@ export const Menu = () => {
                     <option value="">Select</option>
                     {rates.length
                       ? rates.map((val, index) => (
-                          <option key={index} value={val}>
-                            {val}
-                          </option>
-                        ))
+                        <option key={index} value={val}>
+                          {val}
+                        </option>
+                      ))
                       : null}
                   </Form.Select>
                 </Form.Group>
