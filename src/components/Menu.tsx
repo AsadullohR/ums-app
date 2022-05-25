@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Button,
   Card,
@@ -12,7 +12,7 @@ import {
 import { Toggle } from "rsuite";
 import "../App.css";
 import { FaPencilAlt, FaPlus, FaTrashAlt } from "react-icons/fa";
-import { BaseUser, User } from "./Interface";
+import { User } from "./Interface";
 
 export const Menu = () => {
   const defaultUsers = [
@@ -48,14 +48,14 @@ export const Menu = () => {
   const [newUser, setNewUser] = useState(initCurrentUser);
   const [showCreateBtn, setShowCreateBtn] = useState(true);
   const [editing, setEdit] = useState(false);
-  const [rates, setRates] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  const [rates] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
   const handleClose = () => {
     setShow(false);
   };
   const handleShow = () => {
     setShow(true);
-    if (editing == false) {
+    if (editing === false) {
       setNewUser(initCurrentUser);
     }
   };
@@ -67,7 +67,7 @@ export const Menu = () => {
 
   const onEdit = (newUser: any) => {
     setEdit(true);
-    if (editing == true) {
+    if (editing === true) {
       setNewUser({ ...newUser, newUser });
       handleShow();
     }
@@ -185,7 +185,7 @@ export const Menu = () => {
             >
               <Modal.Header closeButton>
                 {
-                  editing == true
+                  editing === true
                     ? <Modal.Title>Edit User</Modal.Title>
                     : <Modal.Title>Add User</Modal.Title>
                 }
